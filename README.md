@@ -3,7 +3,7 @@ db with versioning and sync between browser and node.js server
 
 Sample usage:
 
-* browser side *
+##browser side
 ```javascript
 var jsGitDb = new jsGitDb(
     url: "http://localhost:9898/jsGitDb"
