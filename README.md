@@ -3,6 +3,7 @@ db with versioning and sync between browser and node.js server
 
 Sample usage:
 
+```javascript
 var jsGitDb = new jsGitDb();
 
 element = {
@@ -18,5 +19,6 @@ jsGitDb.set(element, function(err, id){
         JSON.stringify(savedElement) == JSON.stringify(element)
     });
 });
+```
 
 
