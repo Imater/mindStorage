@@ -3,8 +3,11 @@ db with versioning and sync between browser and node.js server
 
 Sample usage:
 
+* browser side *
 ```javascript
-var jsGitDb = new jsGitDb();
+var jsGitDb = new jsGitDb(
+    url: "http://localhost:9898/jsGitDb"
+);
 
 element = {
     id: 1,
@@ -14,9 +17,13 @@ element = {
 };
 
 jsGitDb.set(element, function(err, id){
-    jsGitDb.sync();
     jsGitDb.get(id, function(err, savedElement){
-        JSON.stringify(savedElement) == JSON.stringify(element)
+        if(JSON.stringify(savedElement) == JSON.stringify(element)){
+            console.info("data saved ok")
+        }
+    });
+    jsGitDb.sync().then(function(err, status){
+        console.info("sync status = ", status);
     });
 });
 ```
