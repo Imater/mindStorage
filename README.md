@@ -39,7 +39,7 @@ var jsGitDb = new jsGitDb(
 var sampleId = "4e29c1af880a04b58e2bf1aa4ff25f718ca13d6e";
 
 jsGitDb.get(sampleId, function(err, syncedElement){
-    if(JSON.stringify(savedElement) == JSON.stringify({
+    if(JSON.stringify(syncedElement) == JSON.stringify({
             id: 1,
             title: "test title"
             text: "ok"
