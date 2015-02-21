@@ -1,30 +1,37 @@
 'use strict';
-var paths = require('./paths');
+var paths = require('./gulp/paths');
 
 module.exports = function(config) {
   config.set({
-    files: paths.karma,
+    files: ['./app/index.js', './app/**/*.spec.js'],
+    exclude: ['*.spec.js'],
+    frameworks: ['browserify', 'jasmine'],
     preprocessors: {
-      'app/**/!(*spec).js': ['coverage']
+       'app/**/!(*.spec)+(.js)': ['coverage', 'browserify']
     },
     reporters: [
-      'spec',
-      'coverage'
+      'coverage',
+      'spec'
     ], //spec
-    coverageReporter: [
-      { type: 'html', dir: 'coverage/' },
-      { type: 'text-summary' },
-      { type: 'text' },
+    coverageReporter1: [
+      { type: 'html', dir: 'coverage/' }
     ],
     autoWatch: true,
-    frameworks: ['jasmine'],
     browsers: ['PhantomJS'],
+    browserify: {
+      debug: true,
+      transform: ['browserify-istanbul'],
+      bundleDelay: 0
+    },
     plugins: [
       'karma-jasmine',
       'karma-coverage',
       'karma-spec-reporter',
       'karma-story-reporter',
-      'karma-phantomjs-launcher'
+      'karma-phantomjs-launcher',
+      'karma-browserify',
+      'browserify-istanbul',
+      'browserify-shim'
     ]
   });
 };

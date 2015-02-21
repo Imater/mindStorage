@@ -1,10 +1,9 @@
 'use strict';
-var appPaths = ['app/*.js'];
-var testPaths = ['app/*.spec.js'];
-var gulp = require('gulp');
-var jslint = require('gulp-jslint');
+var gulp = require('./gulp')([
+  'jslint',
+  'browserify'
+]);
 
-gulp.task('default', function(){
-  return gulp.src(appPaths.concat(testPaths))
-    .pipe(jslint());
-});
+gulp.task('default', ['browserify']);
+
+gulp.task('jslint', ['jslint']);
