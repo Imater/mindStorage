@@ -1,6 +1,6 @@
 'use strict';
 var app = ['app/**/!(*spec).js'];
-var test = ['app/*.spec.js'];
+var test = ['app/**/*.spec.js'];
 var vendor = [];
 
 module.exports = {

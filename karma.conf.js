@@ -7,18 +7,23 @@ module.exports = function(config) {
     preprocessors: {
       'app/**/!(*spec).js': ['coverage']
     },
-    reporters: ['dots', 'coverage'], //spec
-    coverageReporter: {
-      type: 'html',
-      dir: 'coverage/'
-    },
+    reporters: [
+      'spec',
+      'coverage'
+    ], //spec
+    coverageReporter: [
+      { type: 'html', dir: 'coverage/' },
+      { type: 'text-summary' },
+      { type: 'text' },
+    ],
     autoWatch: true,
     frameworks: ['jasmine'],
     browsers: ['PhantomJS'],
     plugins: [
       'karma-jasmine',
-      'karma-spec-reporter',
       'karma-coverage',
+      'karma-spec-reporter',
+      'karma-story-reporter',
       'karma-phantomjs-launcher'
     ]
   });

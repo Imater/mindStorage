@@ -1,16 +1,29 @@
 'use strict';
 
-describe('test', function(){
-  it('must exist', function(){
+var jsGitDb;
+beforeEach(function(){
+  jsGitDb = new JsGitDb('John', 'Smith');
+});
+
+describe('JsGitDb', function(){
+
+  it('exists', function(){
     expect(JsGitDb).toBeDefined();
   });
-  it('must say name', function(){
-    var jsGitDb = new JsGitDb('John');
+
+  it('can create instance', function(){
     expect(jsGitDb).toBeDefined();
   });
-  it('must say name', function(){
-    var jsGitDb = new JsGitDb('John');
-    console.info(jsGitDb);
+
+  it('can say name now', function(){
     expect(jsGitDb.sayName()).toBe('John');
   });
+
 });
+
+describe('JsGitDb node', function(){
+  it('test', function(){
+    expect(jsGitDb.saySurname()).toBeDefined();
+  })
+});
+
