@@ -1,13 +1,10 @@
+_ = require('lodash');
+defaults = require('./defaults');
+
 module.exports = (function(){
-  function JsGitDb(name, surname){
-    this.name = name;
-    this.surname = surname;
+  function JsGitDb(options){
+    _.assign(this, defaults(), options);
   }
-  JsGitDb.prototype.sayName = function(){
-    return this.name;
-  };
-  JsGitDb.prototype.saySurname = function(){
-    return this.surname;
-  };
+  JsGitDb.prototype.node = require('./fn-node');
   return JsGitDb;
 })();

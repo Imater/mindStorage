@@ -7,7 +7,8 @@ module.exports = function(config) {
     exclude: ['*.spec.js'],
     frameworks: ['browserify', 'jasmine'],
     preprocessors: {
-       'app/**/!(*.spec)+(.js)': ['coverage', 'browserify']
+       'app/**/!(*.spec)+(.js)': ['coverage', 'browserify'],
+       'app/**/*.js': ['browserify']
     },
     reporters: [
       'coverage',
