@@ -12,9 +12,10 @@ module.exports = function(config) {
     },
     reporters: [
       'coverage',
-      'spec'
+      'dots'
     ], //spec
     coverageReporter1: [
+      { type: 'text-summary' , dir: 'coverage/'},
       { type: 'html', dir: 'coverage/' }
     ],
     autoWatch: true,
