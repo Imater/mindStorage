@@ -1,18 +1,23 @@
 module.exports = Node = (function(){
   var id = 0;
-
-  function Node(options){
-    _.assign(this, options);
-    this._id = id++;
+  _default = {
+    labels: []
   }
 
-  Node.prototype.id = function(){
-    return this._id;
+  function Node(labels){
+    this._node = {};
+    _.assign(this._node, _default);
+    this._node.labels = labels;
+    this._node._id = id++;
+  }
+
+  Node.prototype.getId = function(){
+    return this._node._id;
   };
 
   Node.prototype.createMemento = function(cb){
     var cb = cb || function(){};
-    var mementoString = JSON.stringify(this);
+    var mementoString = JSON.stringify(this._node);
     cb(null, mementoString);
   };
 
@@ -23,7 +28,7 @@ module.exports = Node = (function(){
     } catch(e) {
       cb(e);
     }
-    _.assign(this, memento);
+    _.assign(this._node, memento);
     cb(null, this);
   };
 
