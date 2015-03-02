@@ -8,14 +8,8 @@ describe('Node', function(){
 
   it('can set', function(){
     var nodes = new Nodes();
-    console.info("was", nodes);
     var node1 = new Node(['tree', 'note', 'important']);
     nodes.set(node1);
-    var node1 = new Node(['tree', 'note', 'important']);
-    nodes.set(node1);
-    var node1 = new Node(['tree', 'note', 'important']);
-    nodes.set(node1);
-    console.info("now", JSON.stringify(nodes, null, '  '));
-    expect(true).toBe(true);
+    expect(node1).toBeDefined();
   })
 });
